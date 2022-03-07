@@ -3,16 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>teste api</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="http://fonts.googleapis.com/css?family=Noto+Serif:400, 700" rel="stylesheet">
+  <script src="vue.min.js"></script>
+	<title>Shopping Cart</title>
 </head>
 <body>
-	<script src="script.js"></script>
-
-	<script>
-
-
-
-	
-	</script>
+  <div id="app">
+    <section class="produtos">
+      <div v-for="produto in produtos" :key="produto.id" class="produto">
+        <img :src="produto.img" :alt="produto.nome" class="produto_img" />
+        <div class="produto_info">
+          <span class="produto_preco">{{produto.preco | numeroPreco}}</span>
+          <h2 class="produto_titulo">{{produto.nome}}</h2>
+        </div>
+      </div>
+    </section>
+  </div>
+	<script src="app.js"></script>
 </body>
 </html>
