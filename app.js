@@ -56,9 +56,22 @@ const vm = new Vue({
     },
     removerItem(index) {
       this.carrinho.splice(index, 1)
+    },
+    localStorageCheck() {
+      if(window.localStorage.carrinho){
+        this.carrinho = JSON.parse(window.localStorage.carrinho)
+      }
     }
   },
+  
+  watch: {
+    carrinho() {
+      window.localStorage.carrinho = JSON.stringify(this.carrinho)
+    }
+  },
+
   created() {
     this.fetchProdutos();
+    this.localStorageCheck()
   },
 });
